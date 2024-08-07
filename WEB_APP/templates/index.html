@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>Index</title>
+{% endblock %}   
+
+{% block body %}
+<a href="{{ url_for('yarapcap') }}">YARA PCAP:</a> Read a PCAP file and extract HTTP streams, looking for matches from YARA signatures.</br>
+<a href="{{ url_for('signatures') }}">Signatures:</a> View existing signatures and create new signatures based on the time in-between network transactions.</br>
+<a href="{{ url_for('analyzepcap') }}">Analyze PCAP:</a> Analyze a PCAP, looking at the times in between transactions and alert if there's a signature match.</br>
+{% endblock %}

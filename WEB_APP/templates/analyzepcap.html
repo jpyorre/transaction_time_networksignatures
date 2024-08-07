@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <meta charset="UTF-8">
+    <title>Analyze PCAP</title>
+    <script src="static/js/uploadpcap.js"></script>
+    <link rel="stylesheet" href="static/css/leaflet.css" />
+    <script src="static/js/leaflet.js"></script>
+{% endblock %}
+
+{% block content %}
+<form id="uploadForm" class="upload-form" method="POST" enctype="multipart/form-data">
+    <label for="pcapfile" class="file-label">Upload a PCAP file to check against signatures:</label>
+    <input type="file" id="pcapfile" name="file" accept=".pcap" required>
+    <button type="submit" id="submitButton" class="submit-button">Upload</button>
+</form>
+<div id="progressContainer" class="progress-container" style="display:none;">
+    <div id="progressBar" class="progress-bar"></div>
+</div>
+<div id="resultsContainer">Results will appear here</div>
+<div id="map" style="height: 500px; width: 100%;"></div>
+{% endblock %}

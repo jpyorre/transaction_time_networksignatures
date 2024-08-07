@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block head %}
+    <meta charset="UTF-8">
+    <title>Signatures</title>
+{% endblock %}
+
+{% block content %}
+<form id="uploadSignatureForm" class="upload-form" method="POST" enctype="multipart/form-data" action="/create_signature">
+    <h4>Upload a Signature File</h4>
+    <div id="description_text">Isolate one stream of a PCAP in Wireshark, export that stream as a PCAP file, then upload here to create a signature</div>
+    <input type="file" id="signatureFile" name="file" accept=".json,.pcap" required>
+    <button type="submit" id="uploadSignatureButton" class="submit-button">Upload</button>
+</form>
+<div id="progressContainer" class="progress-container" style="display:none;">
+    <div id="progressBar" class="progress-bar"></div>
+</div>
+<div id="result"></div>
+<div id="success-heading" style="display: none;">Successfully added:</div>
+<div id="signature_resultsContainer" style="display:none;"></div>
+
+<hr>
+<b>Current signatures:</b>
+<div id="current_signatures"></div>
+
+<!-- Add delete button -->
+<button id="deleteAllSignaturesButton" class="submit-button">Delete Signatures</button>
+
+<!-- Include the JSON data as a script element -->
+<script id="json_data" type="application/json">{{ json_data | tojson | safe }}</script>
+<script src="static/js/signature_display.js"></script>
+{% endblock %}

@@ -1,0 +1,10 @@
+flask
+dpkt
+pendulum
+fuzzywuzzy
+python-Levenshtein
+yara-python
+geoip2
+pandas
+fastapi
+uvicorn
